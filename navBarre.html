@@ -1,0 +1,58 @@
+<?php 
+
+if(isset($_SESSION['user'])){
+    require_once "assets/php/selectHandler.php";
+}
+
+?>
+
+<header>
+    <nav>
+        <ul>
+
+            <li>
+                <a href="index.html<?php 
+            
+                if(isset($_SESSION['user'])){
+                    echo '?numContact=' .$user['id'];
+                }
+                ?>">Accueil</a>
+            </li>
+            <?php 
+            
+                if(!(isset($_SESSION['user']))){
+            
+            ?>
+            <li>
+                <a href="creat.html">Creer un compte</a>
+            </li>
+            <li>
+                <a href="seConnecter.html">Se connecter</a>
+            </li>
+
+            <?php
+
+                }else{
+
+            ?>
+
+            <li>
+                <a href="test.html?numContact=<?php echo $user['id']; ?>">test</a>
+            </li>
+            <li>
+                <a href="modifier.html?numContact=<?php echo $user['id']; ?>">Modifier</a>
+            </li>
+            <li>
+                <a href="seDeco.html">Se déconnecter</a>
+            </li>
+            <li>
+                <a href="assets/php/supprimer.html">Supprimer le compte</a>
+            </li>
+            <?php
+
+                }
+
+            ?>
+        </ul>
+    </nav>
+</header>

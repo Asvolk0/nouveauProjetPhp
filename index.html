@@ -1,0 +1,37 @@
+<?php
+
+    require_once 'assets/php/indexHandler.php';
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php index</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+        <?php 
+            include 'navBarre.html';
+        ?>
+    <section>
+        <?php foreach($product as $value){ ?>
+    
+        <article>
+            <img class="prd-img" src="<?php echo $value['img'] ?>" alt="">
+            <h2 class="prd-title"><?php echo $value['nom'] ?></h2>
+            <button class="voir">Voir plus</button>
+            <p id="desc"class="prd-desc"><?php echo $value['description'] ?></p>
+            <?php if(isset($_SESSION['user'])){
+                echo '<a href="#" class="linkConnect">Ouais, maintenant que tu es co tu peux voir ça '.$user['prenom'].'</a>'; 
+            } ?>
+        </article>
+        <?php } ?>
+    </section>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
+

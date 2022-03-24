@@ -1,0 +1,18 @@
+// FONT FAMILY ROBOTO
+@include font-face("ROB_T", "Roboto-Thin", 100);
+@include font-face("ROB_L", "Roboto-Light", 300);
+@include font-face("ROB_R", "Roboto-Regular", 400);
+@include font-face("ROB_M", "Roboto-Medium", 600);
+@include font-face("ROB_B", "Roboto-Bold", 700);
+@include font-face("ROB_BLD", "Roboto-Black", 900);
+
+// FONT ARIMAMADURAI
+@include font-face("AM_B", "ArimaMadurai-Bold", 700);
+
+// FONT JOST
+@include font-face("JOST_L", "Jost-Light", 300);
+@include font-face("JOST_R", "Jost-Regular", 400);
+@include font-face("JOST_SB", "Jost-SemiBold", 600);
+
+//FONT ABRILFATFACE
+@include font-face("AFF_R", "AbrilFatface-Regular", 400);

@@ -1,0 +1,190 @@
+// MIXIN FONT FAMILY
+@mixin font-face($font-family, $fileName, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    src: url("#{$filePath}#{$fileName}.eot");
+    src: url("#{$filePath}#{$fileName}.eot?#iefix") format("embedded-opentype"),
+      url("#{$filePath}#{$fileName}.ttf") format("truetype");
+  }
+}
+
+// MIXIN FONTS FORMAT
+@mixin font(
+  $family,
+  $size,
+  $align: initial,
+  $txtTransform: initial,
+  $spacing: initial,
+  $color: inherit
+) {
+  font-family: $family;
+  font-size: #{$size}px;
+  @if ($align != initial) {
+    text-align: $align;
+  }
+  @if ($txtTransform != inherit) {
+    text-transform: $txtTransform;
+  }
+  @if ($spacing != initial) {
+    letter-spacing: #{$spacing}px;
+  }
+  @if ($color != inherit) {
+    color: $color;
+  }
+}
+
+// MIXIN PARAGRAPHE
+@mixin paragraphe($fontS, $LineH, $spacingWrd, $color: inherit) {
+  font-size: #{$fontS}px;
+  line-height: #{$LineH}px;
+  word-spacing: #{$spacingWrd}px;
+  @if ($color != inherit) {
+    color: $color;
+  }
+}
+// MIXIN LINE-HEIGT TITLE
+@mixin titleH2($sizeF, $lineHeight: #{$lineH40}) {
+  font-size: #{$sizeF}px;
+  @if ($lineHeight != #{$lineH40}) {
+    line-height: #{$lineHeight};
+  }
+}
+
+// MIXIN FLEXBOX
+@mixin flex($just, $align, $dir: row, $wrap: nowrap) {
+  display: flex;
+  justify-content: $just;
+  align-items: $align;
+  @if ($dir != row) {
+    flex-direction: $dir;
+  }
+  @if ($wrap != nowrap) {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin containerSize($sizeW, $margin: initial) {
+  width: $sizeW;
+  @if ($margin != initial) {
+    margin: $margin;
+  }
+}
+
+// MIXIN BACKGROUND-IMAGE
+@mixin background($fileName, $pos, $size, $repeat: repeat) {
+  background-image: url("#{$imgPath}#{$fileName}");
+  background-position: $pos;
+  background-size: $size;
+  @if ($repeat != repeat) {
+    background-repeat: $repeat;
+  }
+}
+
+// MIXIN FILTER
+@mixin filter($grayscale, $invert, $contrast) {
+  filter: grayscale($grayscale) invert($invert) contrast($contrast);
+}
+
+// MIXIN BORDER BEFORE TITLE
+@mixin borderTitle($borderW) {
+  content: "";
+  position: absolute;
+  border: 1px solid $primaryColor;
+  width: #{$borderW}px;
+  bottom: 0;
+}
+// MIXIN BORDER
+@mixin borderSetting($borderStyle: 1 px solid $dark) {
+  @if ($borderStyle != 1 px solid $dark) {
+    border: $borderStyle;
+  }
+}
+
+// MIXIN BORDER-RADIUS
+@mixin borderRadius($borderRadius: $radius100) {
+  @if (#{$borderRadius} != $radius100) {
+    border-radius: $borderRadius;
+  }
+}
+// MIXIN BTN STYLE
+@mixin btnStyle($backgrdColor, $marginX: initial, $cursor: pointer) {
+  background-color: $backgrdColor;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  word-spacing: 2px;
+  text-transform: uppercase;
+  width: 240px;
+  @if ($marginX != pointer) {
+    margin: $marginX;
+  }
+  @if ($cursor != pointer) {
+    cursor: $cursor;
+  }
+}
+// MIXINS BORDER ARROW-UP
+@mixin arrowUp() {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid $brownLight;
+}
+
+@mixin posAbsoluteCenter(
+  $top: 50%,
+  $left: 50%,
+  $transformCenter: translate(-50%, -50%)
+) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: $transformCenter;
+}
+
+// MIXIN RESPONSIVE
+@mixin respond($breakpoint) {
+  @if ($breakpoint == "mobile") {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if ($breakpoint == "mobileLarge") {
+    @media (max-width: 559px) {
+      @content;
+    }
+  } @else if($breakpoint == "tabPort") {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if ($breakpoint == "tab") {
+    @media (max-width: 925px) {
+      @content;
+    }
+  } @else if ($breakpoint == "tabLand") {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if ($breakpoint == "smallLaptop") {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($breakpoint == "laptop") {
+    @media (max-width: 1275px) {
+      @content;
+    }
+  } @else if ($breakpoint == "laptopExtra") {
+    @media (max-width: 1319px) {
+      @content;
+    }
+  } @else if ($breakpoint == "large") {
+    @media (max-width: 1485px) {
+      @content;
+    }
+  } @else if ($breakpoint == "extraLarge") {
+    @media (max-width: 1720px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<?php
+
+require_once 'connect.php';
+
+$sql = "DELETE FROM `users` 
+WHERE id = :num
+LIMIT 1";
+
+$stm = PDOConnect($sql, [
+    'num'=> (int) $_SESSION['user']['id']
+]);
+
+session_destroy();
+
+header('Location: ../../index.html');
+exit();
+
+?>
