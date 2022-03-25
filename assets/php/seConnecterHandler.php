@@ -28,6 +28,7 @@ function connectUser(){
             $_SESSION['user']['prenom'] = $utilisateur['prenom'];
             $_SESSION['user']['mail'] = $utilisateur['mail'];
             $_SESSION['user']['motDePasse'] = $utilisateur['motDePasse'];
+            $_SESSION['admin'] = $utilisateur['admin'];
 
             header('Location: test.html?prenomUtilisateur='.$_SESSION['user']['prenom']);
             exit();

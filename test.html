@@ -1,6 +1,7 @@
 <?php
 
 require_once 'assets/php/selectHandler.php';
+require_once 'assets/php/function.php';
 
 ?>
 
@@ -19,7 +20,10 @@ require_once 'assets/php/selectHandler.php';
         include 'navBarre.html';
     ?>
     <main>
-        Bonjour <?php echo $user['prenom']; ?>
+        Bonjour <?php echo $user['prenom']. ' '; 
+        if(isAdmin() == true){
+            echo 'tu es admin';
+        } ?>
     </main>
 </body>
 </html>

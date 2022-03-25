@@ -1,0 +1,46 @@
+.mainPageUsers{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 100px 0 0 100px;
+    
+    & > div{
+        padding: 10px;
+        position: absolute;
+        top: 12%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+    .sessionAdmin{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border-radius: 6px;
+        background: #ffffff7c;
+        padding: 25px;
+        margin: 0 50px;
+        & > div{
+            padding: 10px;
+        }
+        .divAdmin:nth-child(3){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            & > p{
+                padding-bottom: 10px;
+            }
+            .inputAdmin{
+                padding: 10px;
+                background-color: #424242;
+                border-radius: 15px;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+        
+    }
+}

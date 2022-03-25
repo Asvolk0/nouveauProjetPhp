@@ -1,0 +1,49 @@
+<?php
+
+require_once 'assets/php/selectHandler.php';
+require_once 'assets/php/function.php';
+require_once 'assets/php/modifierAdminHandler.php';
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nouveauProjetphp</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+    <?php
+        include 'navBarre.html';
+    ?>
+    <main class="mainPageUsers">
+        
+
+        <div>
+            Toute les personnes du site
+        </div>
+        
+        <?php
+
+            foreach($selectTablUser as $select){ ?>
+                <section class="sessionAdmin">
+                    <div class="divAdmin"><?php echo $select['prenom']; ?></div>
+                    <div class="divAdmin"><?php echo $select['nom']; ?></div>
+                    <div class="divAdmin"><?php 
+                    if($select['admin'] == 1){
+                        echo '<p>la personne est admin</p>';
+                    }else{
+                        echo '<p>la personne n\'est pas admin</p>'.'<form method="post">'.'<input class="inputAdmin" name="envoyer'.$select['id'].'" type="button" value="Mettre admin"></form>';
+                    } ?></div>
+                    
+                </section>
+            <?php }
+
+        ?>
+    </main>
+</body>
+</html>

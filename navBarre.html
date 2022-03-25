@@ -2,6 +2,7 @@
 
 if(isset($_SESSION['user'])){
     require_once "assets/php/selectHandler.php";
+    require_once 'assets/php/function.php';
 }
 
 ?>
@@ -42,17 +43,21 @@ if(isset($_SESSION['user'])){
             <li>
                 <a href="modifier.html?numContact=<?php echo $user['id']; ?>">Modifier</a>
             </li>
+            <?php if(isAdmin() == true){ ?>
+                <li>
+                    <a href="pageDesUsers.html">Page des users</a>
+                </li>
+                <li>
+                    <a href="pageAdmin.html">Page admin</a>
+                </li>
+            <?php } ?>
             <li>
                 <a href="seDeco.html">Se déconnecter</a>
             </li>
             <li>
                 <a href="assets/php/supprimer.html">Supprimer le compte</a>
             </li>
-            <?php
-
-                }
-
-            ?>
+            <?php } ?>
         </ul>
     </nav>
 </header>
