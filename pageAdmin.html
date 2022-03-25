@@ -1,8 +1,6 @@
 <?php
 
-require_once 'assets/php/selectHandler.php';
-require_once 'assets/php/function.php';
-require_once 'assets/php/modifierAdminHandler.php';
+require_once 'assets/php/ajouterAdminHandler.php';
 
 ?>
 
@@ -20,30 +18,18 @@ require_once 'assets/php/modifierAdminHandler.php';
     <?php
         include 'navBarre.html';
     ?>
-    <main class="mainPageUsers">
-        
-
+    <main class="mainPageAdmin">
         <div>
-            Toute les personnes du site
+            Ajouter un produit
         </div>
-        
-        <?php
-
-            foreach($selectTablUser as $select){ ?>
-                <section class="sessionAdmin">
-                    <div class="divAdmin"><?php echo $select['prenom']; ?></div>
-                    <div class="divAdmin"><?php echo $select['nom']; ?></div>
-                    <div class="divAdmin"><?php 
-                    if($select['admin'] == 1){
-                        echo '<p>la personne est admin</p>';
-                    }else{
-                        echo '<p>la personne n\'est pas admin</p>'.'<form method="post">'.'<input class="inputAdmin" name="envoyer'.$select['id'].'" type="button" value="Mettre admin"></form>';
-                    } ?></div>
-                    
-                </section>
-            <?php }
-
-        ?>
+        <form method="post" action="">
+            <input type="text" name="nom" placeholder="Nom de l'article" required>
+            <input type="number" name="quantite" placeholder="quantité" required>
+            <input type="number" name="prix" placeholder="Prix" required>
+            <textarea name="description" cols="25" rows="3" placeholder="Message" required></textarea>
+            <input type="text" name="img" placeholder="img" required>
+            <input type="submit" name="envoyer">
+        </form>
     </main>
 </body>
 </html>
